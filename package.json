@@ -2,6 +2,10 @@
   "name": "ts-cli-tool",
   "version": "0.0.1",
   "description": "Basic practice CLI tool using TS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juggal/ts-cli-tool.git"
+  },
   "main": "./lib/index.js",
   "bin": {
     "pizza": "./lib/index.js"
@@ -9,23 +13,24 @@
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "create": "npm run build && npm run test",
-    "build": "tsc -p .",
-    "local": "sudo npm i -g && pizza",
+    "build": "tsc",
+    "package": "pkg . --targets node14-linux --output hello",
     "refresh": "rm -rf ./node_moduels ./package-lock.json && npm install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.1",
-    "clear": "^0.1.0",
-    "commander": "^9.2.0",
-    "figlet": "^1.5.2",
-    "path": "^0.12.7"
+    "yargs": "^17.5.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.33",
+    "@types/yargs": "^17.0.10",
     "nodemon": "^2.0.16",
+    "pkg": "^5.6.0",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
+  },
+  "pkg": {
+    "scripts": "lib/**/*.js"
   }
 }
